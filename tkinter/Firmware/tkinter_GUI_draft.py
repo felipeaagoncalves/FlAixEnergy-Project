@@ -332,14 +332,18 @@ class OutputWindow(Frame):
         messagebox.showerror(title="Error", message="No data yet.")
 
     def eex(self):
-        messagebox.showerror(title="Error", message="No data yet.")
+        global count1, count10
+        import EEX_prices
+        if count10 == 1:
+            self.EEX_prices = importlib.reload(EEX_prices)
+        count10 = 1
 
     def opf(self):
         global count9
         import OPF_test1
-        if count9 > 0:
+        if count9 == 1:
             self.OPF_test1 = importlib.reload(OPF_test1)
-        count9 += 1
+        count9 = 1
 
     def setDate(evet, *args):
         global time_display, date_time, date
@@ -375,7 +379,7 @@ auto_percentage_display = StringVar(root)
 steel_percentage = StringVar(root)
 steel_percentage_display = StringVar(root)
 
-time.set('00:00')
+time.set('0')
 time_display.set('00:00')
 auto_percentage.set('0')
 steel_percentage.set('0')
@@ -392,6 +396,7 @@ count6 = 0
 count7 = 0
 count8 = 0
 count9 = 0
+count10 = 0
 
 root.configure(bg="white")
 root.title(string="FlAixEnergy Simulator")
