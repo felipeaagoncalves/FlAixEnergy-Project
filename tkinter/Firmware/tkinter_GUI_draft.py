@@ -307,7 +307,7 @@ class OutputWindow(Frame):
         self.Date_time = Label(self, textvariable=date_time, bg="white")
         self.Date_time.grid(row=0, column=3, padx=7, pady=(7,0))
 
-        self.EEX_Price_Curve = Button(self, text="EEX Price Curve", bg="blue", fg="white", command=self.eex,
+        self.EEX_Price_Curve = Button(self, text="SMARD Price Curve", bg="blue", fg="white", command=self.eex,
                                        relief=GROOVE)
         self.EEX_Price_Curve.grid(row=1, column=3, rowspan=2, sticky=N+S+W+E)
 
