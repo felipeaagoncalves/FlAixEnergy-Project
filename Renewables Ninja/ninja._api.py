@@ -15,8 +15,8 @@ s = requests.session()
 # Send token header with each request
 s.headers = {'Authorization': 'Token ' + token}
 
-YEAR = '2010'
-SIM = 'sarah'
+YEAR = '2016'
+SIM = 'merra2'
 LAT = 50.7753
 LNG = 6.0839
 
