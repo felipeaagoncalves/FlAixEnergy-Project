@@ -15,8 +15,8 @@ s = requests.session()
 # Send token header with each request
 s.headers = {'Authorization': 'Token ' + token}
 
-YEAR = '2014'
-SIM = 'merra2'
+YEAR = '2010'
+SIM = 'sarah'
 LAT = 50.7753
 LNG = 6.0839
 
@@ -91,6 +91,7 @@ wind.columns = ['Wind']
 plot_wind = wind.plot(title='Wind Profile Aachen '+YEAR)
 #plot_wind.set_xlabel("Time")
 plot_wind.set_ylabel("Capacity Factor")
+plot_pv.set_ylim(0., 1.)
 fig_wind = plot_wind.get_figure()
 fig_wind.savefig('Wind_'+YEAR+'.png', dpi=300)
 
@@ -103,14 +104,3 @@ plot_wind = wind[startid:endid+1].plot(title='Wind Profile Summer Day ('+YEAR+'-
 plot_wind.set_ylabel("Capacity Factor")
 fig_wind = plot_wind.get_figure()
 fig_wind.savefig('Wind_day_'+YEAR+'.png', dpi=300)
-
-
-
-
-
-
-
-
-
-
-
