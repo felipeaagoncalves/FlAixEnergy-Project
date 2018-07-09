@@ -41,7 +41,7 @@ count_w = 0
 writer = pd.ExcelWriter('Generation_Profiles.xlsx', engine='openpyxl')
 
 
-for i in range (351, len(file1)):
+for i in range (554, len(file1)):
     x = lat1[i]
     y = lng1[i]
     pwr = pwr1[i]
@@ -142,9 +142,8 @@ for i in range (351, len(file1)):
                 count_w += 1
             
             time.sleep(10)
-#writer.close()
-#            
-#writer = pd.ExcelWriter('Generation_Profiles.xlsx', engine='openpyxl')
+           
+#writer = pd.ExcelWriter('Generation_Profiles(1).xlsx', engine='openpyxl')
 #for u in range (0, len(sol)):
 #    if u == 0:
 #        sol[u][0].to_excel(writer, header=sol[u][2], startcol=u, sheet_name='PV')
