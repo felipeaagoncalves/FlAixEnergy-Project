@@ -24,16 +24,16 @@ LOAD_PWR = 1023.452         # Average Load per MV/LV trafo at 00:15 time in an a
 set_mapbox_token('pk.eyJ1IjoiZmFnb25jYWwiLCJhIjoiY2ppZzBvd3M1MDlsMTNrbjFycW51MThrNSJ9.QZS-9tcaUaoFzPhfeAfNqw')
 plotly.tools.set_credentials_file(username='fagoncal', api_key='WDyaQUbd9y0clzpoaEzs')
 
-path = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN'
+path = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\FlAixEnergy-Project'
 path1 = path + '\Google Maps\Generation_Geocode.xlsx'
 path2 = path + '\Load Profiles\Copy of AC Knoten OpenGridMap Christoph.xlsm'
 path3 = path + '\OpenGridMap\Copy of AC Knoten OpenGridMap Gonca.xlsm'
-#path4 = path + '\Renewables Ninja\Generation_Profiles.xlsx'
+path4 = path + '\Renewables Ninja\Generation_Profiles.xlsx'
 
 file1 = pd.read_excel(path1)
 file2 = pd.read_excel(path2, [0,1,2,3,4])
 file3 = pd.read_excel(path3, [0,1,2])
-#file4 = pd.read_excel(path4, [0,1,2,3,4,5])
+file4 = pd.read_excel(path4, [0,1])
 
 # file 1
 lat1 = file1.get_values()[:, 6].tolist()
@@ -55,6 +55,14 @@ id3_2 = file3[2].get_values()[:, 0].tolist()
 lat3_2 = file3[2].get_values()[:, 5].tolist()
 lng3_2 = file3[2].get_values()[:, 7].tolist()
 
+# file 4
+time = file4[0].get_values()[:, 0].tolist()
+pv = []
+wind = []
+for i in range (1, file4[0]): # number of PVs                   1342
+    pv.append(file4[0].get_values()[:, i].tolist())
+for i in range (1, file4[1]): # number of Winds                 13
+    wind.append(file4[1].get_values()[:, i].tolist())
 
 # Create the Pandapower network called 'Net 1'
 net = pp.create_empty_network(name='Net 1', f_hz=50.)

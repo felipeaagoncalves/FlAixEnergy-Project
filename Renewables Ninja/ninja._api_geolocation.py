@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 
 token = '4533b9ec9d4e1447604f9dfc4d139626f52e2e45'
 api_base = 'https://www.renewables.ninja/api/'
-path1 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Google Maps\Generation_Geocode.xlsx'
+path1 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\FlAixEnergy-Project\Google Maps\Generation_Geocode.xlsx'
 file1 = pd.read_excel(path1)
 lat1 = file1.get_values()[:, 6].tolist()
 lng1 = file1.get_values()[:, 7].tolist()
@@ -39,11 +39,7 @@ count_s = 0
 count_w = 0
 
 
-<<<<<<< HEAD
-for i in range (955, len(file1)):
-=======
-for i in range (554, len(file1)):
->>>>>>> 480d162... deleted unstaged files
+for i in range (1155, len(file1)):
     x = lat1[i]
     y = lng1[i]
     pwr = pwr1[i]
