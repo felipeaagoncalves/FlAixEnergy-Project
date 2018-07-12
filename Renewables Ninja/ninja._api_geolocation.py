@@ -38,10 +38,12 @@ win = []
 count_s = 0
 count_w = 0
 
-writer = pd.ExcelWriter('Generation_Profiles.xlsx', engine='openpyxl')
 
-
+<<<<<<< HEAD
+for i in range (955, len(file1)):
+=======
 for i in range (554, len(file1)):
+>>>>>>> 480d162... deleted unstaged files
     x = lat1[i]
     y = lng1[i]
     pwr = pwr1[i]
@@ -130,7 +132,7 @@ for i in range (554, len(file1)):
                 
                 t2 = np.linspace(wind.index.min().value, wind.index.max().value, 4*len(wind)-3)
                 t2 = pd.to_datetime(t2)
-                f = sp.interpolate.interp1d([float(np.array(pv.index)[i]) for i in range (0, len(pv.index))], np.array(pv['PV']), kind='linear')
+                f = sp.interpolate.interp1d([float(np.array(wind.index)[i]) for i in range (0, len(wind.index))], np.array(wind['Wind']), kind='linear')
                 wind_new = f([float(np.array(t2)[i]) for i in range (0, len(t2))])
                 
                 win.append([])
@@ -142,7 +144,12 @@ for i in range (554, len(file1)):
                 count_w += 1
             
             time.sleep(10)
-           
+
+
+###################################################################################################
+## Run the script below in the IPython Console after runing ninja._api_geolocation.py
+## to save the PV and Wind profiles to an Excel spreadsheet.
+#            
 #writer = pd.ExcelWriter('Generation_Profiles(1).xlsx', engine='openpyxl')
 #for u in range (0, len(sol)):
 #    if u == 0:
@@ -156,8 +163,10 @@ for i in range (554, len(file1)):
 #        win[u][0].to_excel(writer, header=win[u][2], startcol=u+1, index=False, sheet_name='Wind')
 #writer.save()
 #writer.close()
-            
-            
-            
-            
-            
+###################################################################################################
+
+
+
+
+
+           

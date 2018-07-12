@@ -23,32 +23,32 @@ set_mapbox_token('pk.eyJ1IjoiZmFnb25jYWwiLCJhIjoiY2ppZzBvd3M1MDlsMTNrbjFycW51MTh
 plotly.tools.set_credentials_file(username='fagoncal', api_key='WDyaQUbd9y0clzpoaEzs')
 
 path1 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Google Maps\Generation_Geocode.xlsx'
-path2 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Data Opengridmap\AC Knoten OpenGridMap.xlsm'
-path3 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\OpenGridMap\Copy of AC Knoten OpenGridMap.xlsm'
-path4 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\OpenGridMap\nordrhein-westfalen\csv_nodes.csv'
-path5 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\OpenGridMap\nordrhein-westfalen\csv_lines.csv'
-path_pl1 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\PL1.csv'
-path_pl2 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\PL2.csv'
-path_pl3 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\PL3.csv'
-path_ql1 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\QL1.csv'
-path_ql2 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\QL2.csv'
-path_ql3 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\QL3.csv'
-path_datenum = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\time_datenum_MEZ.csv'
-path_datevec = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\time_datevec_MEZ.csv'
+#path2 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Data Opengridmap\AC Knoten OpenGridMap.xlsm'
+path3 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\OpenGridMap\Copy of AC Knoten OpenGridMap Gonca.xlsm'
+#path4 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\OpenGridMap\nordrhein-westfalen\csv_nodes.csv'
+#path5 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\OpenGridMap\nordrhein-westfalen\csv_lines.csv'
+#path_pl1 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\PL1.csv'
+#path_pl2 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\PL2.csv'
+#path_pl3 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\PL3.csv'
+#path_ql1 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\QL1.csv'
+#path_ql2 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\QL2.csv'
+#path_ql3 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\QL3.csv'
+#path_datenum = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\time_datenum_MEZ.csv'
+#path_datevec = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\Forschungscampus_Flexible_Elektrische_Netze_FEN\Resources\FG\Load Profiles HTW Berlin\CSV_74_Loadprofiles_1min_W_var\time_datevec_MEZ.csv'
 
 file1 = pd.read_excel(path1)
-file2 = pd.read_excel(path2)
+#file2 = pd.read_excel(path2)
 file3 = pd.read_excel(path3, [0,1,2])
-file4 = pd.read_csv(path4)
-file5 = pd.read_csv(path5)
-pl1 = pd.read_csv(path_pl1)
-pl2 = pd.read_csv(path_pl2)
-pl3 = pd.read_csv(path_pl3)
-ql1 = pd.read_csv(path_ql1)
-ql2 = pd.read_csv(path_ql2)
-ql3 = pd.read_csv(path_ql3)
-datenum = pd.read_csv(path_datenum)
-datevec = pd.read_csv(path_datevec)
+#file4 = pd.read_csv(path4)
+#file5 = pd.read_csv(path5)
+#pl1 = pd.read_csv(path_pl1)
+#pl2 = pd.read_csv(path_pl2)
+#pl3 = pd.read_csv(path_pl3)
+#ql1 = pd.read_csv(path_ql1)
+#ql2 = pd.read_csv(path_ql2)
+#ql3 = pd.read_csv(path_ql3)
+#datenum = pd.read_csv(path_datenum)
+#datevec = pd.read_csv(path_datevec)
 
 # file 1
 lat1 = file1.get_values()[:, 6].tolist()
@@ -57,9 +57,9 @@ pwr1 = file1.get_values()[:, 8].tolist()
 gen_type1 = file1.get_values()[:, 9].tolist()
 
 # file 2
-lat2 = file2.get_values()[:, 5].tolist()
-lng2 = file2.get_values()[:, 7].tolist()
-trafo_type2 = file2.get_values()[:, 13].tolist()
+#lat2 = file2.get_values()[:, 5].tolist()
+#lng2 = file2.get_values()[:, 7].tolist()
+#trafo_type2 = file2.get_values()[:, 13].tolist()
 
 # file 3
 id3_1 = file3[1].get_values()[:, 0].tolist()
@@ -70,25 +70,25 @@ lat3_2 = file3[2].get_values()[:, 5].tolist()
 lng3_2 = file3[2].get_values()[:, 7].tolist()
 
 # file 4
-n_id = file4.get_values()[:, 0].tolist()
-lat4 = file4.get_values()[:, 2].tolist()
-lng4 = file4.get_values()[:, 1].tolist()
-type4 = file4.get_values()[:, 3].tolist()
-voltage4 = file4.get_values()[:, 4].tolist()
-freq4 = file4.get_values()[:, 5].tolist()
+#n_id = file4.get_values()[:, 0].tolist()
+#lat4 = file4.get_values()[:, 2].tolist()
+#lng4 = file4.get_values()[:, 1].tolist()
+#type4 = file4.get_values()[:, 3].tolist()
+#voltage4 = file4.get_values()[:, 4].tolist()
+#freq4 = file4.get_values()[:, 5].tolist()
 
 # file 5
-l_id = file5.get_values()[:, 0].tolist()
-n_id_start = file5.get_values()[:, 1].tolist()
-n_id_end = file5.get_values()[:, 2].tolist()
-voltage5 = file5.get_values()[:, 3].tolist()
-cables = file5.get_values()[:, 4].tolist()
-type5 = file5.get_values()[:, 5].tolist()
-length_m = file5.get_values()[:, 9].tolist()
-r_ohm_km = file5.get_values()[:, 10].tolist()
-x_ohm_km = file5.get_values()[:, 11].tolist()
-c_nf_km = file5.get_values()[:, 12].tolist()
-i_th_max_km = file5.get_values()[:, 13].tolist()
+#l_id = file5.get_values()[:, 0].tolist()
+#n_id_start = file5.get_values()[:, 1].tolist()
+#n_id_end = file5.get_values()[:, 2].tolist()
+#voltage5 = file5.get_values()[:, 3].tolist()
+#cables = file5.get_values()[:, 4].tolist()
+#type5 = file5.get_values()[:, 5].tolist()
+#length_m = file5.get_values()[:, 9].tolist()
+#r_ohm_km = file5.get_values()[:, 10].tolist()
+#x_ohm_km = file5.get_values()[:, 11].tolist()
+#c_nf_km = file5.get_values()[:, 12].tolist()
+#i_th_max_km = file5.get_values()[:, 13].tolist()
 
 # PL1
 
