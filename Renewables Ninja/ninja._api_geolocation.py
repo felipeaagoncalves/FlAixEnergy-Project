@@ -39,7 +39,7 @@ count_s = 0
 count_w = 0
 
 
-for i in range (1155, len(file1)):
+for i in range (293, len(file1)):
     x = lat1[i]
     y = lng1[i]
     pwr = pwr1[i]
@@ -52,7 +52,7 @@ for i in range (1155, len(file1)):
             # don't forget to multiply the power rating from each generator to
             # the given Capacity Factor from Renewables Ninja.
             
-            if gen_type1[i] == 'SOL':
+            if 0:
                 ##
                 # PV example
                 ##
