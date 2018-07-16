@@ -24,11 +24,11 @@ LOAD_PWR = 1023.452         # Average Load per MV/LV trafo at 00:15 time in an a
 set_mapbox_token('pk.eyJ1IjoiZmFnb25jYWwiLCJhIjoiY2ppZzBvd3M1MDlsMTNrbjFycW51MThrNSJ9.QZS-9tcaUaoFzPhfeAfNqw')
 plotly.tools.set_credentials_file(username='fagoncal', api_key='WDyaQUbd9y0clzpoaEzs')
 
-path = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\FlAixEnergy-Project'
-path1 = path + '\Google Maps\Generation_Geocode.xlsx'
-path2 = path + '\Load Profiles\Copy of AC Knoten OpenGridMap Christoph.xlsm'
-path3 = path + '\OpenGridMap\Copy of AC Knoten OpenGridMap Gonca.xlsm'
-path4 = path + '\Renewables Ninja\Generation_Profiles.xlsx'
+path = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves'
+path1 = path + '\FlAixEnergy-Project\Google Maps\Generation_Geocode.xlsx'
+path2 = path + '\FlAixEnergy-Project\Load Profiles\Copy of AC Knoten OpenGridMap Christoph.xlsm'
+path3 = path + '\FlAixEnergy-Project\OpenGridMap\Copy of AC Knoten OpenGridMap Gonca.xlsm'
+path4 = path + '\Generation_Profiles.xlsx'
 
 file1 = pd.read_excel(path1)
 file2 = pd.read_excel(path2, [0,1,2,3,4])
@@ -59,9 +59,9 @@ lng3_2 = file3[2].get_values()[:, 7].tolist()
 time = file4[0].get_values()[:, 0].tolist()
 pv = []
 wind = []
-for i in range (1, file4[0]): # number of PVs                   1342
+for i in range (1, len(file4[0])): # Number of PVs                   1342
     pv.append(file4[0].get_values()[:, i].tolist())
-for i in range (1, file4[1]): # number of Winds                 13
+for i in range (1, len(file4[1])): # Number of Wind Turbines         13
     wind.append(file4[1].get_values()[:, i].tolist())
 
 # Create the Pandapower network called 'Net 1'
@@ -216,7 +216,7 @@ lc = pplotly.create_line_trace(net,lines=None, color="blue",
 
 tc = pplotly.create_trafo_trace(net,net.trafo.index,width=5,color="pink")
 
-pplotly.draw_traces(bc + tc, on_map = True, 
+pplotly.draw_traces(bc + lc + tc, on_map = True, 
                     map_style='dark', showlegend=True, aspectratio='auto')
 #pf_res_plotly(net, on_map=True)
 

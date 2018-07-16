@@ -52,7 +52,7 @@ for i in range (293, len(file1)):
             # don't forget to multiply the power rating from each generator to
             # the given Capacity Factor from Renewables Ninja.
             
-            if 0:
+            if gen_type1[i] == 'SOL':
                 ##
                 # PV example
                 ##
