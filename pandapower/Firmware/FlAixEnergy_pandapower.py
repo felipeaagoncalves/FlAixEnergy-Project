@@ -7,6 +7,7 @@ Created on Tue Jul 10 10:22:44 2018
 
 import plotly
 import numpy as np
+import datetime
 import pandas as pd
 import pandapower as pp
 from pandapower.plotting.plotly import get_plotly_color_palette
@@ -59,10 +60,11 @@ lng3_2 = file3[2].get_values()[:, 7].tolist()
 time = file4[0].get_values()[:, 0].tolist()
 pv = []
 wind = []
-for i in range (1, len(file4[0])): # Number of PVs                   1342
+for i in range (0, len(np.transpose(file4[0]))): # Number of PVs                   1342
     pv.append(file4[0].get_values()[:, i].tolist())
-for i in range (1, len(file4[1])): # Number of Wind Turbines         13
+for i in range (0, len(np.transpose(file4[1]))): # Number of Wind Turbines         13
     wind.append(file4[1].get_values()[:, i].tolist())
+
 
 # Create the Pandapower network called 'Net 1'
 net = pp.create_empty_network(name='Net 1', f_hz=50.)
@@ -104,6 +106,7 @@ for i in range (0, len(file3[1])):
 busbar_id = []
 check2 = count - 1
 iterator = 0
+iterator1 = 0
 for i in range (0, len(file3[2])):
     x = lat3_2[i]
     y = lng3_2[i]
@@ -124,10 +127,22 @@ for i in range (0, len(file3[2])):
         pp.create_switch(net, bus=start_bus, element=id3_2[i], et="b",
                          closed=False, type="CB",
                          name="switch"+str(i))
-#           pp.create_load()
         iterator += 1
-        busbar_id.append(id3_2[i])
-        count += 1
+    
+#    for start_bus in net.gen['bus']:
+#        it = net.gen.index(start_bus)
+#        (start_x, start_y) = (lat1[it], lng1[it])
+#        geodata  = [(start_x, start_y), (x, y)]
+#        length = gd.distance(geodata[0], geodata[1]).km
+#        pp.create_line(net, from_bus=start_bus, to_bus=id3_2[i] ,
+#                       name='line'+str(iterator1), length_km=length,
+#                       std_type='149-AL1/24-ST1A 110.0', geodata=geodata)  
+#        pp.create_switch(net, bus=start_bus, element=id3_2[i], et="b",
+#                         closed=False, type="CB",
+#                         name="switch"+str(i))
+#        iterator1 += 1
+    busbar_id.append(id3_2[i])
+    count += 1
     
 
 #check = count - 1

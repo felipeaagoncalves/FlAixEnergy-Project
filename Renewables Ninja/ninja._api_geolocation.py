@@ -39,7 +39,7 @@ count_s = 0
 count_w = 0
 
 
-for i in range (293, len(file1)):
+for i in range (0, len(file1)):
     x = lat1[i]
     y = lng1[i]
     pwr = pwr1[i]
@@ -62,8 +62,8 @@ for i in range (293, len(file1)):
                 args = {
                     'lat': x,
                     'lon': y,
-                    'date_from': YEAR+'-01-01',
-                    'date_to': YEAR+'-12-31',
+                    'date_from': '2014-12-31',
+                    'date_to': '2015-01-01',
                     'dataset': SIM,
                     'capacity': 1.0,
                     'system_loss': 10,
@@ -112,8 +112,8 @@ for i in range (293, len(file1)):
                 args = {
                     'lat': x,
                     'lon': y,
-                    'date_from': YEAR+'-01-01',
-                    'date_to': YEAR+'-12-31',
+                    'date_from': '2014-12-31',
+                    'date_to': '2015-01-01',
                     'capacity': 1.0,
                     'height': 100,
                     'turbine': 'Vestas V80 2000',
@@ -139,7 +139,7 @@ for i in range (293, len(file1)):
                 
                 count_w += 1
             
-            time.sleep(10)
+            time.sleep(18)
 
 
 ###################################################################################################
