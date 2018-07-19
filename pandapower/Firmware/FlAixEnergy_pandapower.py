@@ -27,7 +27,7 @@ plotly.tools.set_credentials_file(username='fagoncal', api_key='WDyaQUbd9y0clzpo
 
 path = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves'
 path1 = path + '\FlAixEnergy-Project\Google Maps\Generation_Geocode.xlsx'
-path2 = path + '\FlAixEnergy-Project\Load Profiles\Copy of AC Knoten OpenGridMap Christoph.xlsm'
+path2 = path + '\FlAixEnergy-Project\Load Profiles\Household Profiles\Copy of AC Knoten OpenGridMap Christoph.xlsm'
 path3 = path + '\FlAixEnergy-Project\OpenGridMap\Copy of AC Knoten OpenGridMap Gonca.xlsm'
 path4 = path + '\Generation_Profiles.xlsx'
 

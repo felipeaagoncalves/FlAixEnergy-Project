@@ -112,7 +112,7 @@ for i in range (0, len(file1)):
                 args = {
                     'lat': x,
                     'lon': y,
-                    'date_from': '2014-12-31',
+                    'date_from': YEAR+'-01-01',
                     'date_to': '2015-01-01',
                     'capacity': 1.0,
                     'height': 100,
@@ -139,7 +139,7 @@ for i in range (0, len(file1)):
                 
                 count_w += 1
             
-            time.sleep(18)
+            time.sleep(10)
 
 
 ###################################################################################################
