@@ -202,3 +202,213 @@ win_w_we_avg = win_w_we/count_win_w_we
 #plt.figure()
 #plt.title('win_we_avg')
 #plt.plot(win_we_avg)
+
+
+
+
+
+
+
+
+
+
+## Count number of Weekdays and Weekends in the Summer and the Winter:
+summer_wd = 0
+summer_we = 0
+winter_wd = 0
+winter_we = 0
+
+for step in file4[0].index:
+    if step.hour == 0 and step.minute == 0:
+        if step >= START_SUMMER and step <= END_SUMMER:
+            if step.isoweekday() in [1,2,3,4,5]:
+                summer_wd += 1
+            if step.isoweekday() in [6,7]:
+                summer_we += 1
+        if step >= START_WINTER13 and step <= END_WINTER13:
+            if step.isoweekday() in [1,2,3,4,5]:
+                winter_wd += 1
+            if step.isoweekday() in [6,7]:
+                winter_we += 1
+        if step >= START_WINTER14 and step <= END_WINTER14:
+            if step.isoweekday() in [1,2,3,4,5]:
+                winter_wd += 1
+            if step.isoweekday() in [6,7]:
+                winter_we += 1
+
+print('Summer Weekdays:   '+str(summer_wd))
+print('Summer Weekends:   '+str(summer_we))
+print('Winter Weekdays:   '+str(winter_wd))
+print('Winter Weekends:   '+str(winter_we))
+
+
+
+
+
+
+
+
+
+
+# Get the average PV profiles
+pv_s_wd_avg = pv_s_wd/summer_wd
+pv_s_we_avg = pv_s_we/summer_we
+pv_w_wd_avg = pv_w_wd/winter_wd
+pv_w_we_avg = pv_w_we/winter_we
+
+# Get the average Wind profiles
+win_s_wd_avg = win_s_wd/summer_wd
+win_s_we_avg = win_s_we/summer_we
+win_w_wd_avg = win_w_wd/winter_wd
+win_w_we_avg = win_w_we/winter_we
+
+
+path8 = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\FlAixEnergy-Project\pandapower\Generator_Profiles_2014_CF_Average.xlsx'
+file8 = pd.read_excel(path1, [0,1,2,3,4,5,6,7])
+time = file8[0]['time of the day']
+
+
+# PV ###############################################
+plt.figure()
+plt.plot(time, pv_s_wd_avg)
+plt.title('PV Summer Weekday Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.savefig('PV Summer Weekday Average Profiles.png', dpi=300)
+
+plt.figure()
+plt.plot(time, pv_s_we_avg)
+plt.title('PV Summer Weekend Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.savefig('PV Summer Weekend Average Profiles.png', dpi=300)
+
+plt.figure()
+plt.plot(time, pv_w_wd_avg)
+plt.title('PV Winter Weekday Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.savefig('PV Winter Weekday Average Profiles.png', dpi=300)
+
+plt.figure()
+plt.plot(time, pv_w_we_avg)
+plt.title('PV Winter Weekend Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.savefig('PV Winter Weekend Average Profiles.png', dpi=300)
+####################################################
+
+
+# Wind #############################################
+plt.figure()
+plt.plot(time, win_s_wd_avg)
+plt.title('Wind Summer Weekday Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.savefig('Wind Summer Weekday Average Profiles.png', dpi=300)
+
+plt.figure()
+plt.plot(time, win_s_we_avg)
+plt.title('Wind Summer Weekend Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.savefig('Wind Summer Weekend Average Profiles.png', dpi=300)
+
+plt.figure()
+plt.plot(time, win_w_wd_avg)
+plt.title('Wind Winter Weekday Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.savefig('Wind Winter Weekday Average Profiles.png', dpi=300)
+
+plt.figure()
+plt.plot(time, win_w_we_avg)
+plt.title('Wind Winter Weekend Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.savefig('Wind Winter Weekend Average Profiles.png', dpi=300)
+####################################################
+
+
+
+
+
+
+
+
+
+
+# Normalized plot
+# PV ###############################################
+
+plt.figure()
+plt.plot(time, pv_s_wd_avg)
+plt.title('PV Summer Weekday Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.ylim((0, 1))
+plt.savefig('PV Summer Weekday Average Profiles Normalized.png', dpi=300)
+
+plt.figure()
+plt.plot(time, pv_s_we_avg)
+plt.title('PV Summer Weekend Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.ylim((0, 1))
+plt.savefig('PV Summer Weekend Average Profiles Normalized.png', dpi=300)
+
+plt.figure()
+plt.plot(time, pv_w_wd_avg)
+plt.title('PV Winter Weekday Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.ylim((0, 1))
+plt.savefig('PV Winter Weekday Average Profiles Normalized.png', dpi=300)
+
+plt.figure()
+plt.plot(time, pv_w_we_avg)
+plt.title('PV Winter Weekend Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.ylim((0, 1))
+plt.savefig('PV Winter Weekend Average Profiles Normalized.png', dpi=300)
+####################################################
+
+
+# Wind #############################################
+plt.figure()
+plt.plot(time, win_s_wd_avg)
+plt.title('Wind Summer Weekday Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.ylim((0, 1))
+plt.savefig('Wind Summer Weekday Average Profiles Normalized.png', dpi=300)
+
+plt.figure()
+plt.plot(time, win_s_we_avg)
+plt.title('Wind Summer Weekend Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.ylim((0, 1))
+plt.savefig('Wind Summer Weekend Average Profiles Normalized.png', dpi=300)
+
+plt.figure()
+plt.plot(time, win_w_wd_avg)
+plt.title('Wind Winter Weekday Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.ylim((0, 1))
+plt.savefig('Wind Winter Weekday Average Profiles Normalized.png', dpi=300)
+
+plt.figure()
+plt.plot(time, win_w_we_avg)
+plt.title('Wind Winter Weekend Average Profiles')
+plt.xlabel('Time of the day')
+plt.ylabel('Capacity Factor')
+plt.ylim((0, 1))
+plt.savefig('Wind Winter Weekend Average Profiles Normalized.png', dpi=300)
+####################################################
+
+
+
+
