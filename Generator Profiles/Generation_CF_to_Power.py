@@ -64,3 +64,30 @@ for page in range (0, 8):
 
 
 
+
+
+
+#file2[7]['id: 180'] = file2[7]['id: 180']*1500
+#output = np.zeros((1342*96+13*96, 1))
+#count = 0
+#for page in [0, 4]:
+#    for ids in file2[page].transpose().index[2:]:
+#        for iterator in range (count, count+96):
+#            output[iterator] = file2[page][ids][iterator % 96]
+#        count += 96
+
+#file2[7]['id: 180'] = file2[7]['id: 180']*1500
+#output = list()
+#count = 0
+#for page in [0, 4]:
+#    for ids in file2[page].transpose().index[2:]:
+#        output.append('gen_'+str(ids[4:]))
+#        count += 1
+        
+      
+        
+        
+        
+        
+        
+        
