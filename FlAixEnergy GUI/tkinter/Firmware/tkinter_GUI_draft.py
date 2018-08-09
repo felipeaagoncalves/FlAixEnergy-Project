@@ -58,75 +58,89 @@ class InputWindow(Frame):
         helpmenu = Menu(menubar, tearoff=0)
         helpmenu.add_command(label="Info", command=self.info)
         helpmenu.add_command(label="License", command=self.license)
-        helpmenu.add_command(label="GitHub Repo", command=self.gitHub)
+        helpmenu.add_command(label="GitHub", command=self.gitHub)
+        helpmenu.add_command(label="Website", command=self.website)
         menubar.add_cascade(label="Help", menu=helpmenu)
         root.config(menu=menubar)
 
+        self.SelectDay = Label(self, text="Please select sample day:", bg="white")
+        self.SelectDay.grid(row=0, padx=7, pady=(7,0), columnspan=2, sticky=W)
+
+        self.SelectTime = Label(self, text="Please select time of the day:", bg="white")
+        self.SelectTime.grid(row=0, column=2, padx=7, pady=(7, 0), columnspan=2, sticky=W)
+
         self.WinterWD = Button(self, text="Winter Weekday", bg="blue", fg="white", command=self.winterwd)
-        self.WinterWD.grid(row=0, padx=7, pady=7)
+        self.WinterWD.grid(row=1, padx=7, pady=7)
 
         self.WinterWE = Button(self, text="Winter Weekend", bg="blue", fg="white", command=self.winterwe)
-        self.WinterWE.grid(row=1, padx=7, pady=7)
+        self.WinterWE.grid(row=2, padx=7, pady=7)
 
         self.SummerWD = Button(self, text="Summer Weekday", bg="blue", fg="white", command=self.summerwd)
-        self.SummerWD.grid(row=0, column=1, padx=7, pady=7)
+        self.SummerWD.grid(row=1, column=1, padx=7, pady=7)
 
         self.SummerWE = Button(self, text="Summer Weekend", bg="blue", fg="white", command=self.summerwe)
-        self.SummerWE.grid(row=1, column=1, padx=7, pady=7)
+        self.SummerWE.grid(row=2, column=1, padx=7, pady=7)
+
+        self.SelectGenerator = Label(self, text="Please select Generator Profiles:", bg="white")
+        self.SelectGenerator.grid(row=3, padx=7, pady=(21, 0), columnspan=2, sticky=W)
 
         self.LocalPV = Button(self, text="Local PV", bg="blue", fg="white", command=self.pvFactor)
-        self.LocalPV.grid(row=2, columnspan=2, padx=7, pady=(20,7), sticky=W + E)
+        self.LocalPV.grid(row=4, columnspan=2, padx=7, pady=(0,7), sticky=W + E)
 
         self.LocalWind = Button(self, text="Local Wind", bg="blue", fg="white", command=self.windFactor)
-        self.LocalWind.grid(row=3, columnspan=2, padx=7, pady=7, sticky=W + E)
+        self.LocalWind.grid(row=5, columnspan=2, padx=7, pady=7, sticky=W + E)
+
+        self.SelectConsumer = Label(self, text="Please select Consumer Profiles:", bg="white")
+        self.SelectConsumer.grid(row=6, padx=7, pady=(21, 0), columnspan=2, sticky=W)
 
         self.Industy = Label(self, text="Degree of Flexibility", bg="white")
-        self.Industy.grid(row=4, column=2, columnspan=4, padx=2, pady=2, sticky=W + E)
+        self.Industy.grid(row=6, column=2, columnspan=4, padx=(0,34), pady=(21,0), sticky=E)
 
         self.AutoIndustry = Button(self, text="Automotive industry", bg="blue", fg="white", command=self.autoFlex)
-        self.AutoIndustry.grid(row=5, columnspan=2, padx=7, pady=7, sticky=W + E)
+        self.AutoIndustry.grid(row=7, columnspan=2, padx=7, pady=7, sticky=W + E)
 
         self.SteelIndustry = Button(self, text="Steel Industry", bg="blue", fg="white", command=self.steelFlex)
-        self.SteelIndustry.grid(row=6, columnspan=2, padx=7, pady=7, sticky=W + E)
+        self.SteelIndustry.grid(row=8, columnspan=2, padx=7, pady=7, sticky=W + E)
 
 
         text1 = str(round(float(auto_percentage.get()) * 100)) + '%'
         auto_percentage_display.set(text1)
         self.AutoIndustry_Percentage = Label(self, textvariable=auto_percentage_display, bg="white", width=1)
-        self.AutoIndustry_Percentage.grid(row=5, column=2, padx=2, pady=2, sticky=W + E)
+        self.AutoIndustry_Percentage.grid(row=7, column=2, padx=2, pady=2, sticky=W + E)
         self.AutoIndustry_Scroll = Scrollbar(self, orient=HORIZONTAL, command=self.setAuto)
-        self.AutoIndustry_Scroll.grid(row=5, column=3, columnspan=3, padx=7, sticky=W + E)
+        self.AutoIndustry_Scroll.grid(row=7, column=3, columnspan=3, padx=7, sticky=W + E)
 
 
         text2 = str(round(float(steel_percentage.get()) * 100)) + '%'
         steel_percentage_display.set(text2)
         self.SteelIndustry_Percentage = Label(self, textvariable=steel_percentage_display, bg="white")
-        self.SteelIndustry_Percentage.grid(row=6, column=2, padx=2, pady=2, sticky=W + E)
+        self.SteelIndustry_Percentage.grid(row=8, column=2, padx=2, pady=2, sticky=W + E)
         self.SteelIndustry_Scroll = Scrollbar(self, orient=HORIZONTAL, command=self.setSteel)
-        self.SteelIndustry_Scroll.grid(row=6, column=3, columnspan=3, padx=7, sticky=W + E)
+        self.SteelIndustry_Scroll.grid(row=8, column=3, columnspan=3, padx=7, sticky=W + E)
 
 
         choices = {'1', '2', '3', '4', '5'}
         popupMenu = OptionMenu(self, tkvar_pv, *sorted(choices))
         self.PV_Factor = Label(self, text="Factor:", bg="white")
-        self.PV_Factor.grid(row=2, column=2, columnspan=2, padx=7, pady=(20,7), sticky=W + E)
-        popupMenu.grid(row=2, column=4, columnspan=2, padx=7, pady=(20,0), sticky=W + E)
+        self.PV_Factor.grid(row=4, column=2, columnspan=2, padx=7, pady=(0,7), sticky=W + E)
+        popupMenu.grid(row=4, column=4, columnspan=2, padx=7, pady=(0,7), sticky=W + E)
 
 
         choices = {'1', '2', '3', '4', '5'}
         popupMenu = OptionMenu(self, tkvar_wind, *sorted(choices))
         self.Wind_Factor = Label(self, text="Factor:", bg="white")
-        self.Wind_Factor.grid(row=3, column=2, columnspan=2, padx=7, pady=7, sticky=W + E)
-        popupMenu.grid(row=3, column=4, columnspan=2, padx=7, sticky=W + E)
+        self.Wind_Factor.grid(row=5, column=2, columnspan=2, padx=7, pady=7, sticky=W + E)
+        popupMenu.grid(row=5, column=4, columnspan=2, padx=7, pady=7, sticky=W + E)
 
-        self.Time = Scrollbar(self, orient=HORIZONTAL, command=self.setTime)
-        self.Time.grid(row=1, column=2, columnspan=4, padx=7, sticky=N + W + E)
         self.TimeLabel = Label(self, textvariable=time_display, width=40, bg="white")
-        self.TimeLabel.grid(row=0, column=2, columnspan=4, sticky=S)
+        self.TimeLabel.grid(row=1, column=2, columnspan=4, sticky=W + E)
+        self.Time = Scrollbar(self, orient=HORIZONTAL, command=self.setTime)
+        self.Time.grid(row=1, column=2, rowspan=2, columnspan=4, padx=7, sticky= W + E)
+
 
         self.Continue = Button(self, text="Continue", bg="blue", fg="white",
                                command=self.next_page)
-        self.Continue.grid(row=7, column=4, columnspan=2, padx=7, pady=7, sticky=W + E)
+        self.Continue.grid(row=9, column=4, columnspan=2, padx=7, pady=7, sticky=W + E)
 
 
     def raiseitup(event):
@@ -242,6 +256,8 @@ class InputWindow(Frame):
         global count, count5, count6, count7, count8
         if count != [0,0,0,0] and (count5 % 2 == 1 or count6 % 2 == 1 or count7 % 2 == 1 or count8 % 2 == 1):
             self.controller.show_frame(OutputWindow)
+        else:
+            messagebox.showerror(title="Error",message="Please enter Day and Profiles.")
 
     def new(self):
         messagebox.showinfo(title="Edit", message="No edit options yet.")
@@ -271,6 +287,9 @@ class InputWindow(Frame):
     def gitHub(self):
         webbrowser.open_new("https://github.com/felipeaagoncalves/Forschungscampus"
                             "_Flexible_Elektrische_Netze_FEN")
+
+    def website(self):
+        webbrowser.open_new("https://fenaachen.net/")
 
 
 class OutputWindow(Frame):

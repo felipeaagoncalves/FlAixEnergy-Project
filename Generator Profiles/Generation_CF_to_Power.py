@@ -59,15 +59,13 @@ for page in range (0, 8):
     for gen in file1.index.tolist():
         for ids in file2[page].transpose().index[2:]:
             if int(ids[4:]) == gen:
-                file2[page][ids] = file2[page][ids]*pwr1[gen]
+                file2[page][ids] = 0
+file2[7]['id: 180'] = file2[7]['id: 180']*1500
 
 
 
 
 
-
-
-#file2[7]['id: 180'] = file2[7]['id: 180']*1500
 #output = np.zeros((1342*96+13*96, 1))
 #count = 0
 #for page in [0, 4]:
