@@ -30,7 +30,7 @@ s = requests.session()
 # Send token header with each request
 s.headers = {'Authorization': 'Token ' + token}
 
-YEAR = '2014'
+YEAR = '2016'
 SIM = 'sarah'
 
 sol = []
@@ -62,8 +62,8 @@ for i in range (0, len(file1)):
                 args = {
                     'lat': x,
                     'lon': y,
-                    'date_from': '2014-12-31',
-                    'date_to': '2015-01-01',
+                    'date_from': YEAR+'-01-01',
+                    'date_to': YEAR+'-12-31',
                     'dataset': SIM,
                     'capacity': 1.0,
                     'system_loss': 10,
@@ -113,7 +113,7 @@ for i in range (0, len(file1)):
                     'lat': x,
                     'lon': y,
                     'date_from': YEAR+'-01-01',
-                    'date_to': '2015-01-01',
+                    'date_to': YEAR+'-12-31',
                     'capacity': 1.0,
                     'height': 100,
                     'turbine': 'Vestas V80 2000',
