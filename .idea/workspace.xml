@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5324980-65c2-499f-9d14-5ba822a29f93" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/FlAixEnergy-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FlAixEnergy-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlAixEnergy GUI/tkinter/Firmware/tkinter_GUI_draft.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlAixEnergy GUI/tkinter/Firmware/tkinter_GUI_draft.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generator Profiles/Generation_CF_to_Power.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generator Profiles/Generation_CF_to_Power.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIMS/Netzdaten_Aachen.xls" beforeDir="false" afterPath="$PROJECT_DIR$/AIMS/Netzdaten_Aachen.xls" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,9 +14,10 @@
     <session id="701460354">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -189,7 +185,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24038461" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
