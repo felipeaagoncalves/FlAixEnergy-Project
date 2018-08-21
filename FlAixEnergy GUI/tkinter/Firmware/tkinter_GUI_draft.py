@@ -340,8 +340,8 @@ class OutputWindow(Frame):
 
 
     def getMap(self):
-        self.Imagefile = 'Aachen_Map_Draft.png'
-        self.Image = Image.open(self.Imagefile).resize((256, 256), resample=PIL.Image.LANCZOS)
+        self.Imagefile = '../Pictures/Maps/Load Flow Map_Tutorial.png'
+        self.Image = Image.open(self.Imagefile).resize((350, 230), resample=PIL.Image.LANCZOS)
         self.Img = ImageTk.PhotoImage(self.Image)
 
     def loading(self):
