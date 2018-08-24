@@ -15,50 +15,90 @@ import pandapower.plotting.plotly as pplotly
 from pandapower.plotting.plotly.mapbox_plot import set_mapbox_token
 import geopy.distance as gd
 
-LOAD_PWR = 1023.452         # Average Load per MV/LV trafo at 00:15 time in an average day of the year
+LOAD_PWR = 1023.452         # Average Load per MV/LV trafo at 00:15 time in an
+                            # average day of the year
 
-set_mapbox_token('pk.eyJ1IjoiZmFnb25jYWwiLCJhIjoiY2ppZzBvd3M1MDlsMTNrbjFycW51MThrNSJ9.QZS-9tcaUaoFzPhfeAfNqw')
-plotly.tools.set_credentials_file(username='fagoncal', api_key='WDyaQUbd9y0clzpoaEzs')
+set_mapbox_token(('pk.eyJ1IjoiZmFnb25jYWwiLCJhIjoiY2ppZzBvd3M1MDlsMTNrbjFycW5'
+                  '1MThrNSJ9.QZS-9tcaUaoFzPhfeAfNqw'))
+plotly.tools.set_credentials_file(username='fagoncal', 
+                                  api_key='WDyaQUbd9y0clzpoaEzs')
+path = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves\FlAixEnergy-Project'
 
-path = r'C:\Users\uoa-student2\Desktop\Felipe Goncalves'
-path1 = path + '\FlAixEnergy-Project\Google Maps\Generation_Geocode.xlsx'
-path2 = path + '\FlAixEnergy-Project\Load Profiles\Household Profiles\Copy of AC Knoten OpenGridMap Christoph.xlsm'
-path3 = path + '\FlAixEnergy-Project\OpenGridMap\Copy of AC Knoten OpenGridMap Gonca.xlsm'
-path4 = path + '\Generation_Profiles.xlsx'
+# Load Profiles
+path_auto = path + ('\Load Profiles\Automotive Profiles'
+                    '\DFA_Automotive_Profile.xlsx')
+path_house = path + ('\Load Profiles\Household Profiles'
+                     '\Aachen-region-weighted Household Load Profiles.xlsx')
 
-file1 = pd.read_excel(path1)
-file2 = pd.read_excel(path2, [0,1,2,3,4])
-file3 = pd.read_excel(path3, [0,1,2])
-file4 = pd.read_excel(path4, [0,1])
+# Generator Profiles
+path_gen_pwr = path + '\pandapower\Generator_Profiles_Power.xlsx'
+path_gen_geo = path + '\Google Maps\Generation_Geocode.xlsx'
 
-# file 1
-lat1 = file1.get_values()[:, 6].tolist()
-lng1 = file1.get_values()[:, 7].tolist()
-pwr1 = file1.get_values()[:, 8].tolist()
-gen_type1 = file1.get_values()[:, 9].tolist()
+# Busbars / Ext Grids Profiles
+path_busbar = path + '\OpenGridMap\Copy of AC Knoten OpenGridMap Gonca.xlsm'
 
-# file 2
-id2 = file2[2].get_values()[:, 0].tolist()
-lat2 = file2[2].get_values()[:, 5].tolist()
-lng = file2[2].get_values()[:, 7].tolist()
-weight = file2[2].get_values()[:, 14].tolist()
+# SMARD Energy Prices
+path_price = path + ('\Energy Prices\SMARD Prices'
+                     '\Summer-Winter Price Averages (SMARD).xlsx')
 
-# file 3
-id3_1 = file3[1].get_values()[:, 0].tolist()
-lat3_1 = file3[1].get_values()[:, 5].tolist()
-lng3_1 = file3[1].get_values()[:, 7].tolist()
-id3_2 = file3[2].get_values()[:, 0].tolist()
-lat3_2 = file3[2].get_values()[:, 5].tolist()
-lng3_2 = file3[2].get_values()[:, 7].tolist()
+# AIMMS Results
+path_aimms = path + '\AIMMS\Lastfluss_results.xls'
+path_netzd = path + '\AIMMS\Netzdaten_Aachen.xlsx'
 
-# file 4
-time = file4[0].get_values()[:, 0].tolist()
-pv = []
-wind = []
-for i in range (0, len(np.transpose(file4[0]))): # Number of PVs                   1342
-    pv.append(file4[0].get_values()[:, i].tolist())
-for i in range (0, len(np.transpose(file4[1]))): # Number of Wind Turbines         13
-    wind.append(file4[1].get_values()[:, i].tolist())
+
+# Load Profiles
+file_auto = pd.read_excel(path_auto, [0,1,2,3,4])
+file_house = pd.read_excel(path_house, [0,1,2,3,4])
+
+# Generator Profiles
+file_gen_pwr = pd.read_excel(path_gen_pwr, [0,1,2,3,4])
+file_gen_geo = pd.read_excel(path_gen_geo, [0,1,2,3,4])
+
+# Busbars / Ext Grids Profiles
+file_busbar = pd.read_excel(path_busbar, [0,1,2,3,4])
+
+# SMARD Energy Prices
+file_price = pd.read_excel(path_price, [0,1,2,3,4])
+
+# AIMMS Results
+file_aimms = pd.read_excel(path_aimms, [0,1,2,3,4])
+file_netzd = pd.read_excel(path_netzd, [0,1,2,3,4])
+
+
+## file 4
+#time = file4[0].get_values()[:, 0].tolist()
+#pv = []
+#wind = []
+#for i in range (0, len(np.transpose(file4[0]))): # Number of PVs                   1342
+#    pv.append(file4[0].get_values()[:, i].tolist())
+#for i in range (0, len(np.transpose(file4[1]))): # Number of Wind Turbines         13
+#    wind.append(file4[1].get_values()[:, i].tolist())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Create the Pandapower network called 'Net 1'
