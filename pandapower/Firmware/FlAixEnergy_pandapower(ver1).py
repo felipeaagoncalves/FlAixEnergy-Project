@@ -14,6 +14,9 @@ from pandapower.plotting.plotly import get_plotly_color_palette
 import pandapower.plotting.plotly as pplotly
 from pandapower.plotting.plotly.mapbox_plot import set_mapbox_token
 import geopy.distance as gd
+import time
+
+start = time.time()
 
 LAT_LOW = 50.715395
 LAT_UP = 50.949572
@@ -116,33 +119,33 @@ for i in range (0, len(file3[2])):
         if file3[2]['id:'][i] == file2[2]['id:'][u]:
             pp.create_load(net, bus=id3_2[i], name='load_'+str(id3_2[i]),
                            p_kw=weight[u]*LOAD_PWR)                                                     # create weighted household load
-    for start_bus in net.trafo['lv_bus']:
-        it = id3_1.index(start_bus)
-        (start_x, start_y) = (lat3_1[it], lng3_1[it])
-        geodata  = [(start_x, start_y), (x, y)]
-        length = gd.distance(geodata[0], geodata[1]).km
-        
-        pp.create_line(net, from_bus=start_bus, to_bus=id3_2[i] ,
-                       name='line_'+str(iterator), length_km=length,
-                       std_type='94-AL1/15-ST1A 10.0', geodata=geodata)                                 # create ext grid to busbar lines  
-        pp.create_switch(net, bus=start_bus, element=id3_2[i], et="b",
-                         closed=False, type="CB",
-                         name="switch_"+str(i))
-        iterator += 1
-            
-    for start_bus in net.gen['bus']:
-        gen_x = net.bus_geodata[0:len(net.gen['bus'])]['x'][start_bus]
-        gen_y = net.bus_geodata[0:len(net.gen['bus'])]['y'][start_bus]
-        (start_x, start_y) = (gen_x, gen_y)
-        geodata  = [(start_x, start_y), (x, y)]
-        length = gd.distance(geodata[0], geodata[1]).km
-        pp.create_line(net, from_bus=start_bus, to_bus=id3_2[i] ,
-                       name='line_'+str(iterator), length_km=length,
-                       std_type='94-AL1/15-ST1A 10.0', geodata=geodata)                               # create busbar to generator lines 
-        pp.create_switch(net, bus=start_bus, element=id3_2[i], et="b",
-                         closed=False, type="CB",
-                         name="switch_"+str(i))
-        iterator += 1
+#    for start_bus in net.trafo['lv_bus']:
+#        it = id3_1.index(start_bus)
+#        (start_x, start_y) = (lat3_1[it], lng3_1[it])
+#        geodata  = [(start_x, start_y), (x, y)]
+#        length = gd.distance(geodata[0], geodata[1]).km
+#        
+#        pp.create_line(net, from_bus=start_bus, to_bus=id3_2[i] ,
+#                       name='line_'+str(iterator), length_km=length,
+#                       std_type='94-AL1/15-ST1A 10.0', geodata=geodata)                                 # create ext grid to busbar lines  
+#        pp.create_switch(net, bus=start_bus, element=id3_2[i], et="b",
+#                         closed=False, type="CB",
+#                         name="switch_"+str(i))
+#        iterator += 1
+#            
+#    for start_bus in net.gen['bus']:
+#        gen_x = net.bus_geodata[0:len(net.gen['bus'])]['x'][start_bus]
+#        gen_y = net.bus_geodata[0:len(net.gen['bus'])]['y'][start_bus]
+#        (start_x, start_y) = (gen_x, gen_y)
+#        geodata  = [(start_x, start_y), (x, y)]
+#        length = gd.distance(geodata[0], geodata[1]).km
+#        pp.create_line(net, from_bus=start_bus, to_bus=id3_2[i] ,
+#                       name='line_'+str(iterator), length_km=length,
+#                       std_type='94-AL1/15-ST1A 10.0', geodata=geodata)                               # create busbar to generator lines 
+#        pp.create_switch(net, bus=start_bus, element=id3_2[i], et="b",
+#                         closed=False, type="CB",
+#                         name="switch_"+str(i))
+#        iterator += 1
         
     busbar_id.append(id3_2[i])
     count += 1
@@ -228,19 +231,40 @@ bc_busbar = pplotly.create_bus_trace(net,busbar_id, size=8, color="red",
 
 bc = bc_gen + bc_ext_grid + bc_trafo + bc_busbar
 
-lc = pplotly.create_line_trace(net,lines=None, color="blue", 
-                               infofunc= net.line.name.astype(str) + '<br>'
-                               + '110.0 kV')
+#lc = pplotly.create_line_trace(net,lines=None, color="blue", 
+#                               infofunc= net.line.name.astype(str) + '<br>'
+#                               + '110.0 kV')
 
 tc = pplotly.create_trafo_trace(net,net.trafo.index,width=5,color="pink")
 
-pplotly.draw_traces(bc + lc + tc, on_map = True, 
-                    map_style='dark', showlegend=True, aspectratio='auto')
-#pf_res_plotly(net, on_map=True)
+#pplotly.draw_traces(bc + tc, on_map = True, 
+#                    map_style='dark', showlegend=True, aspectratio='auto')
+pplotly.pf_res_plotly(bc + tc, on_map=True, map_style='dark',
+                      aspectratio='auto')
 
 
 
 
 
 
-pp.to_excel(net, filename="Aachen Net.xlsx", include_results=True)
+
+#pp.to_excel(net, filename="Aachen Net.xlsx", include_results=True)
+
+
+
+
+
+
+
+
+end = time.time()
+elapsed_time = end - start
+print('Time elapsed: ' + elapsed_time)
+
+
+
+
+
+
+
+
